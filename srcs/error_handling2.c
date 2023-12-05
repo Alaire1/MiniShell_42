@@ -3,19 +3,17 @@
 
 int	syntax_error_operator(char *error, char *operator)
 {
-	ft_putstr_fd(error, 2);
-	ft_putstr_fd(operator, 2);
-	ft_putstr_fd("'\n", 2);
+	printf("%s%s\'\n", error, operator); // it was putstr_fd before
 	return (1);
 }
-
+// if there are '&&' ony one is being printed in the error message 
 int	syntax_error_token(char *error, char metachar, int dup)
 {
-	ft_putstr_fd(error, 2);
-	ft_putchar_fd(metachar, 2);
+	(void)dup;
+	printf("%s %c'", error, metachar); // it was putstr_fd before
 	if (dup == 1)
-		ft_putchar_fd(metachar, 2);
-	ft_putstr_fd("'\n", 2);
+		printf("%c", metachar);
+	printf("\n");
 	return (1);
 }
 

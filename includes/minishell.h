@@ -25,8 +25,8 @@
 # define LLOWER "<<"
 # define NOTHANDLE "&;(){}*\\"
 
-# define UNTOKEN "minishell: syntax error near unexpected token `"
-# define NOSUPPORT "minishell: no support for operator `"
+# define UNTOKEN "minishell: syntax error near unexpected token '"
+# define NOSUPPORT "minishell: no support for operator '"
 
 
 # define PROMPT "Bash4Cash💸"

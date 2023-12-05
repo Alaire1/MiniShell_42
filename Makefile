@@ -3,12 +3,10 @@
 NAME		= minishell
 LIBFT		= libft.a
 
-#----------DIRS----------#
 SRCDIR = ./srcs/
 LIBFTDIR = ./libft/
 INCDIR = ./includes/
 
-#----------SRCS----------#
 SRC =	env_utils \
 		env \
 		error_handling \
@@ -42,7 +40,6 @@ SRC =	env_utils \
 
 SRCS = $(addprefix ${SRCDIR}, $(addsuffix .c, ${SRC}))
 
-#--------COMMANDS--------#
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I $(INCDIR)  -I /usr/local/Cellar/readline/8.1.1/include/ -g -fsanitize=address
 EXTRA = -lreadline 
@@ -50,11 +47,10 @@ AR = ar rcs
 RM = rm -rf
 MAKEFLAGS += --no-print-directory
 
-#----------OBJS----------#
 OBJS = ${SRCS:.c=.o}
 
-#---------COLORS---------#
 GREEN       =   \033[0;32m
+RESET       =   \033[0m	
 
 
 
@@ -63,7 +59,7 @@ GREEN       =   \033[0;32m
 	@$(CC) $(CFLAGS) -c $< -o bin/$*.o
 
 all: 		$(NAME)
-	@echo "$(GREEN)[Compilation complete]"
+	@echo "$(GREEN)Program \"$(NAME)\" compiled successfully ✅$(RESET)"
 
 $(LIBFT):
 			@cd $(LIBFTDIR) && $(MAKE)
