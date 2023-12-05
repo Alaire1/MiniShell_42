@@ -6,24 +6,24 @@ int	g_exit_status = 0;
 int	main(int argc, char **argv, char **sys_env)
 {
 	t_minishell	mini;
-	int			i;	
+	int			input_check;	
 
 	(void)argv;
 	ft_terminal_non_print_off();
 	if (argc > 1)
-		printf("minishell: wrong number of arguments\n");
-	else
+		printf("minishell: too many arguments\nUse: ./minishell\n");
+	else if (argc == 1)
 	{
 		mini.env = init_env(sys_env);
 		mini.export = init_export(sys_env);
 		while (1)
 		{
-			i = 0;
+			input_check = 0;
 			signal_handling();
-			i = read_input(&mini);
-			if (!i)
+			input_check = read_input(&mini);
+			if (!input_check)
 				continue ;
-			else if (i == -1)
+			else if (input_check == -1)
 				break ;
 			executer(&mini);
 		}
