@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_heredoc.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/11 08:50:57 by npavelic          #+#    #+#             */
+/*   Updated: 2023/12/06 17:40:52 by akaraban         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
@@ -44,6 +55,7 @@ static void	heredoc(t_minishell *mini, char **cmd_args, char *limiter)
 
 void	handle_heredoc(char **cmd_args, t_minishell *mini, int *i, int *count)
 {
+	cmd_args[*i + 1] = remove_quotes(cmd_args[*i + 1]);
 	heredoc(mini, cmd_args, cmd_args[*i + 1]);
 	mini->in_fd = open(".heredoc", O_RDONLY);
 	if (mini->in_fd < 0)

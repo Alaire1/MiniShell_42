@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_redirs.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/11 16:40:07 by npavelic          #+#    #+#             */
+/*   Updated: 2023/12/06 17:48:30 by akaraban         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
@@ -32,12 +43,16 @@ static void	handle_app(char **cmd_args, t_minishell *mini, int *i, int *count)
 	if (ft_strrchr(cmd_args[*i + 1], '$'))
 	{
 		cmd_args[*i + 1] = expander(cmd_args[*i + 1], mini);
+		cmd_args[*i + 1] = remove_quotes(cmd_args[*i + 1]);
 		mini->out_fd = open(cmd_args[*i + 1], O_RDWR | O_CREAT | O_APPEND,
 				S_IRUSR | S_IWUSR);
 	}
 	else
+	{
+		cmd_args[*i + 1] = remove_quotes(cmd_args[*i + 1]);
 		mini->out_fd = open(cmd_args[*i + 1], O_RDWR | O_CREAT | O_APPEND,
 				S_IRUSR | S_IWUSR);
+	}
 	if (mini->out_fd < 0)
 	{
 		ft_putstr_fd("Error creating file\n", 2);
@@ -51,12 +66,16 @@ static void	handle_out(char **cmd_args, t_minishell *mini, int *i, int *count)
 	if (ft_strrchr(cmd_args[*i + 1], '$'))
 	{
 		cmd_args[*i + 1] = expander(cmd_args[*i + 1], mini);
+		cmd_args[*i + 1] = remove_quotes(cmd_args[*i + 1]);
 		mini->out_fd = open(cmd_args[*i + 1], O_RDWR | O_CREAT | O_TRUNC,
 				S_IRUSR | S_IWUSR);
 	}
 	else
+	{
+		cmd_args[*i + 1] = remove_quotes(cmd_args[*i + 1]);
 		mini->out_fd = open(cmd_args[*i + 1], O_RDWR | O_CREAT | O_TRUNC,
 				S_IRUSR | S_IWUSR);
+	}
 	if (mini->out_fd < 0)
 	{
 		ft_putstr_fd("Error creating file\n", 2);
