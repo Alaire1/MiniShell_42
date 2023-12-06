@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/06 18:01:54 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:29:43 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	echo_multi_args2(char **cmd_args, int i)
 	j = 1;
 	while (cmd_args[j])
 	{
-		printf(cmd_args[j++]);
+		printf("%s", cmd_args[j++]);
 		if (j == i)
 		{
 			printf("\n");
@@ -62,7 +62,7 @@ static void	echo_multi_args(char **cmd_args, int i)
 			j++;
 		while (cmd_args[j])
 		{
-			printf(cmd_args[j++]);
+			printf("%s", cmd_args[j++]);
 			if (j == i)
 				break ;
 			printf(" ");
@@ -86,7 +86,7 @@ void	builtin_echo(t_minishell *mini, char **cmd_args)
 		if (check_noption(cmd_args[1]))
 			printf("");
 		else
-			printf(cmd_args[1], 1);
+			printf("%s", cmd_args[1]);
 	}
 	else
 		echo_multi_args(cmd_args, i);

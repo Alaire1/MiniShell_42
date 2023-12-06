@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:21:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 17:52:41 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/06 20:07:00 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@ void initialize(char **sys_env, t_minishell *mini)
 {
 	mini->env = init_env(sys_env);
 	mini->export = init_export(sys_env);
+	incr_shell_lvl(mini->env);
+}
+
+void clear_all_data(t_minishell mini)
+{
+	rl_clear_history();
+	free_env(mini.env);
+	free_export(mini.export);
+	printf("exit\n");
 }
 
 int	main(int argc, char **argv, char **sys_env)
@@ -43,8 +52,7 @@ int	main(int argc, char **argv, char **sys_env)
 				break ;
 			executer(&mini);
 		}
-		return (rl_clear_history(), free_env(mini.env),
-			free_export(mini.export), printf("exit\n"), 0);
+		return (clear_all_data(mini), 0);
 	}
 	return (0);
 }

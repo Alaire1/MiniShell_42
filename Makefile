@@ -7,26 +7,26 @@ SRCDIR = ./srcs/
 LIBFTDIR = ./libft/
 INCDIR = ./includes/
 
-SRC =	env_utils \
-		env \
-		error_handling \
-		error_handling2 \
-		errors \
-		executer_builtin \
-		executer_utils \
-		executer \
-		expander \
-		export \
-		handle_heredoc \
-		handle_redirs \
-		input_handler \
+SRC =	env/env_utils \
+		env/env \
+		errors/error_handling \
+		errors/error_handling2 \
+		errors/errors \
+		execution/executer_builtin \
+		execution/executer_utils \
+		execution/executer \
+		parsing/expander \
+		env/export \
+		execution/handle_heredoc \
+		execution/handle_redirs \
+		parsing/input_handler \
 		main \
-		quote_remover \
-		signals \
-		split_meta \
-		utils \
-		utils2 \
-		utils3 \
+		parsing/quote_remover \
+		utils/signals \
+		parsing/split_meta \
+		utils/utils \
+		utils/utils2 \
+		utils/utils3 \
 		builtins/builtin_cd \
 		builtins/builtin_echo \
 		builtins/builtin_env \
@@ -35,7 +35,8 @@ SRC =	env_utils \
 		builtins/builtin_export2 \
 		builtins/builtin_pwd \
 		builtins/builtin_unset \
-		non_print_off
+		utils/non_print_off \
+		utils/new_file \
 
 
 SRCS = $(addprefix ${SRCDIR}, $(addsuffix .c, ${SRC}))

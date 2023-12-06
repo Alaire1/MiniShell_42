@@ -25,8 +25,8 @@
 # define LLOWER "<<"
 # define NOTHANDLE "&;(){}*\\"
 
-# define UNTOKEN "minishell: syntax error near unexpected token '"
-# define NOSUPPORT "minishell: no support for operator '"
+# define UNTOKEN "Bash4Cash💸: syntax error near unexpected token '"
+# define NOSUPPORT "Bash4Cash💸: no support for operator '"
 
 
 # define PROMPT "Bash4Cash💸"
@@ -545,5 +545,11 @@ void	ft_putchar(char c);
 void ft_terminal_non_print_off(void);
 void ft_modify_attribute(int fd, int flag, int operation);
 
+// main.c
 void initialize(char **sys_env, t_minishell *mini);
+void clear_all_data(t_minishell mini);
+
+//new_file.c
+void	incr_shell_lvl(t_list *data);
+
 #endif
