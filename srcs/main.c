@@ -6,13 +6,19 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:21:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 17:37:54 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/06 17:52:41 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
 int	g_exit_status = 0;
+
+void initialize(char **sys_env, t_minishell *mini)
+{
+	mini->env = init_env(sys_env);
+	mini->export = init_export(sys_env);
+}
 
 int	main(int argc, char **argv, char **sys_env)
 {
@@ -25,8 +31,7 @@ int	main(int argc, char **argv, char **sys_env)
 		printf("minishell: too many arguments\nUse: ./minishell\n");
 	else if (argc == 1)
 	{
-		mini.env = init_env(sys_env);
-		mini.export = init_export(sys_env);
+		initialize(sys_env, &mini);
 		while (1)
 		{
 			input_check = 0;
@@ -39,7 +44,7 @@ int	main(int argc, char **argv, char **sys_env)
 			executer(&mini);
 		}
 		return (rl_clear_history(), free_env(mini.env),
-			free_export(mini.export), ft_putstr("exit\n"), 0);
+			free_export(mini.export), printf("exit\n"), 0);
 	}
 	return (0);
 }

@@ -542,7 +542,8 @@ void   ft_putstr(char *str);
 void	ft_putchar(char c);
 
 // non_print_off.c
-
 void ft_terminal_non_print_off(void);
 void ft_modify_attribute(int fd, int flag, int operation);
+
+void initialize(char **sys_env, t_minishell *mini);
 #endif

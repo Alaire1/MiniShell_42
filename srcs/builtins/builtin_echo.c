@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/06 17:46:09 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/06 18:01:54 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ static void	echo_multi_args2(char **cmd_args, int i)
 	j = 1;
 	while (cmd_args[j])
 	{
-		ft_putstr(cmd_args[j++]);
+		printf(cmd_args[j++]);
 		if (j == i)
 		{
 			printf("\n");
 			break ;
 		}
 		if (cmd_args[j - 1][0] != 0)
-			ft_putstr(" ");
+			printf(" ");
 	}
 }
 
@@ -62,10 +62,10 @@ static void	echo_multi_args(char **cmd_args, int i)
 			j++;
 		while (cmd_args[j])
 		{
-			ft_putstr(cmd_args[j++]);
+			printf(cmd_args[j++]);
 			if (j == i)
 				break ;
-			ft_putstr(" ");
+			printf(" ");
 		}
 	}
 	else
@@ -84,9 +84,9 @@ void	builtin_echo(t_minishell *mini, char **cmd_args)
 	else if (i == 2)
 	{
 		if (check_noption(cmd_args[1]))
-			ft_putstr("");
+			printf("");
 		else
-			ft_putendl_fd(cmd_args[1], 1);
+			printf(cmd_args[1], 1);
 	}
 	else
 		echo_multi_args(cmd_args, i);
