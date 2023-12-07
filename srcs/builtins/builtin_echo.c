@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_echo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akaraban <akaraban.student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/06 18:29:43 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/07 00:37:35 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	builtin_echo(t_minishell *mini, char **cmd_args)
 	else if (i == 2)
 	{
 		if (check_noption(cmd_args[1]))
-			printf("");
+			printf(" ");
 		else
 			printf("%s", cmd_args[1]);
 	}
