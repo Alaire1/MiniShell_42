@@ -1,8 +1,15 @@
-// static void	update_envir_value(t_env *envir, char *new_value)
-// {
-//     free(envir->info);
-//     envir->info = new_value;
-// }
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   shell_lvl_env.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/06 17:07:12 by akaraban          #+#    #+#             */
+/*   Updated: 2023/12/07 15:00:55 by akaraban         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
 int    get_level(char *info)

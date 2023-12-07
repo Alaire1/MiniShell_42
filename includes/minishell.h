@@ -538,8 +538,11 @@ void	check_unset(t_minishell *mini, char **cmd_args);
 /// @param cmd_args 
 void	builtin_unset(t_minishell *mini, char **cmd_args);
 
+
+//utils3.c
 void   ft_putstr(char *str);
 void	ft_putchar(char c);
+int	ft_strcmp(char *s1, char *s2);
 
 // non_print_off.c
 void ft_terminal_non_print_off(void);
@@ -549,7 +552,15 @@ void ft_modify_attribute(int fd, int flag, int operation);
 void initialize(char **sys_env, t_minishell *mini);
 void clear_all_data(t_minishell mini);
 
-//new_file.c
+//shell_lvl_env.c
 void	incr_shell_lvl(t_list *data);
+void update_shlvl(t_env *envir);
+t_env *find_shlvl(t_list *data);
+char    *get_string(char *name, char *info);
+int    get_level(char *info);
+
+//shell_lvl_export.c
+char *get_updated_shlvl(char *str);
+char *get_num_from_str(char *str);
 
 #endif

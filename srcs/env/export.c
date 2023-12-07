@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/06 19:09:41 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:20:28 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ t_exp	*ft_create_export(char *info)
 
 	data = (t_exp *)malloc(sizeof(t_exp));
 	data->name = get_name(info);
+	if (ft_strcmp(data->name, "SHLVL") == 0)
+		info = get_updated_shlvl(info);
 	data->info = add_declare(info);
 	return (data);
 }

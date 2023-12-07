@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:21:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 20:07:00 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:49:10 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void initialize(char **sys_env, t_minishell *mini)
 	mini->env = init_env(sys_env);
 	mini->export = init_export(sys_env);
 	incr_shell_lvl(mini->env);
+	
 }
 
 void clear_all_data(t_minishell mini)

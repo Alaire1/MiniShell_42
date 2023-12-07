@@ -3,31 +3,17 @@
 NAME		= minishell
 LIBFT		= libft.a
 
+CFLAGS = -Wall -Wextra -Werror -I $(INCDIR)  -I /usr/local/Cellar/readline/8.1.1/include/ -g -fsanitize=address
+EXTRA = -lreadline 
+AR = ar rcs
+RM = rm -rf
+MAKEFLAGS += --no-print-directory
+
 SRCDIR = ./srcs/
 LIBFTDIR = ./libft/
 INCDIR = ./includes/
 
-SRC =	env/env_utils \
-		env/env \
-		errors/error_handling \
-		errors/error_handling2 \
-		errors/errors \
-		execution/executer_builtin \
-		execution/executer_utils \
-		execution/executer \
-		parsing/expander \
-		env/export \
-		execution/handle_heredoc \
-		execution/handle_redirs \
-		parsing/input_handler \
-		main \
-		parsing/quote_remover \
-		utils/signals \
-		parsing/split_meta \
-		utils/utils \
-		utils/utils2 \
-		utils/utils3 \
-		builtins/builtin_cd \
+SRC =	builtins/builtin_cd \
 		builtins/builtin_echo \
 		builtins/builtin_env \
 		builtins/builtin_exit \
@@ -35,25 +21,36 @@ SRC =	env/env_utils \
 		builtins/builtin_export2 \
 		builtins/builtin_pwd \
 		builtins/builtin_unset \
+		env/env_utils \
+		env/env \
+		env/export \
+		errors/error_handling \
+		errors/error_handling2 \
+		errors/errors \
+		execution/executer_builtin \
+		execution/executer_utils \
+		execution/executer \
+		execution/handle_heredoc \
+		execution/handle_redirs \
+		parsing/input_handler \
+		parsing/expander \
+		parsing/quote_remover \
+		parsing/split_meta \
+		utils/signals \
 		utils/non_print_off \
-		utils/new_file \
+		utils/shell_lvl_env \
+		utils/shell_lvl_export\
+		utils/utils \
+		utils/utils2 \
+		utils/utils3 \
+		main \
 
 
 SRCS = $(addprefix ${SRCDIR}, $(addsuffix .c, ${SRC}))
-
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(INCDIR)  -I /usr/local/Cellar/readline/8.1.1/include/ -g -fsanitize=address
-EXTRA = -lreadline 
-AR = ar rcs
-RM = rm -rf
-MAKEFLAGS += --no-print-directory
-
 OBJS = ${SRCS:.c=.o}
 
 GREEN       =   \033[0;32m
 RESET       =   \033[0m	
-
-
 
 .c.o:
 	@mkdir -p bin/$(dir $<)

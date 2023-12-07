@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/06 17:46:30 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:30:02 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ char	*add_declare(char *str)
 		info = ft_strjoin("declare -x ", str);
 		return (info);
 	}
+	// printf("\n o\n");
 	name = ft_substr(str, 0, size);
 	info = ft_strjoin(name, "=\"");
 	free(name);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_echo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akaraban <akaraban.student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/07 00:37:35 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:53:10 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,45 +31,46 @@ static int	check_noption(char *arg)
 	}
 	return (0);
 }
-
 static void	echo_multi_args2(char **cmd_args, int i)
 {
-	int	j;
+    int	j;
 
-	j = 1;
-	while (cmd_args[j])
-	{
-		printf("%s", cmd_args[j++]);
-		if (j == i)
-		{
-			printf("\n");
-			break ;
-		}
-		if (cmd_args[j - 1][0] != 0)
-			printf(" ");
-	}
+    j = 1;
+    while (cmd_args[j])
+    {
+        printf("%s", cmd_args[j++]);
+        if (j == i)
+        {
+            printf("\n");
+            break ;
+        }
+        if (cmd_args[j - 1][0] != 0)
+            printf(" ");
+    }
+    if (j != i)
+        printf("\n");
 }
 
 static void	echo_multi_args(char **cmd_args, int i)
 {
-	int	j;
+    int	j;
 
-	j = 1;
-	if (check_noption(cmd_args[1]))
-	{
-		j++;
-		while (check_noption(cmd_args[j]))
-			j++;
-		while (cmd_args[j])
-		{
-			printf("%s", cmd_args[j++]);
-			if (j == i)
-				break ;
-			printf(" ");
-		}
-	}
-	else
-		echo_multi_args2(cmd_args, i);
+    j = 1;
+    if (check_noption(cmd_args[1]))
+    {
+        j++;
+        while (check_noption(cmd_args[j]))
+            j++;
+        while (cmd_args[j])
+        {
+            printf("%s", cmd_args[j++]);
+            if (j == i)
+                break ;
+            printf(" ");
+        }
+    }
+    else
+        echo_multi_args2(cmd_args, i);
 }
 
 void	builtin_echo(t_minishell *mini, char **cmd_args)
