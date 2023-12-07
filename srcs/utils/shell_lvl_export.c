@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:07:02 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/07 16:45:11 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:12:09 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ char *get_updated_shlvl(char *str)
 	char *new_str;
 
 	num = get_num_from_str(str);
-	printf("num = %s\n", num);
 	j = ft_atoi(num) + 1;
 	free(num);
 	if (j == 1000)
@@ -52,7 +51,6 @@ char *get_updated_shlvl(char *str)
 	else
 		num = ft_itoa(j);
 	new_str = ft_strjoin("SHLVL=", num);
-	printf("new_str = %s\n", new_str);
 	free(num);
 	return (new_str);	
 }

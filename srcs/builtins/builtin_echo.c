@@ -6,11 +6,22 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/07 16:53:10 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:18:56 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+// static void print_string_array(char ** string_array)
+// {
+// 	int i = 0;
+// 	while (string_array[i])
+// 	{
+// 		printf("\n%s", string_array[i]);
+// 		i++;
+// 	}
+// 	printf("\n");
+// }
 
 static int	check_noption(char *arg)
 {
@@ -78,6 +89,7 @@ void	builtin_echo(t_minishell *mini, char **cmd_args)
 	int	i;
 
 	i = 0;
+
 	while (cmd_args[i])
 		i++;
 	if (i == 1)
@@ -87,7 +99,7 @@ void	builtin_echo(t_minishell *mini, char **cmd_args)
 		if (check_noption(cmd_args[1]))
 			printf(" ");
 		else
-			printf("%s", cmd_args[1]);
+			printf("%s\n", cmd_args[1]);
 	}
 	else
 		echo_multi_args(cmd_args, i);

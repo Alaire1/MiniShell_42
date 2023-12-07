@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/06 19:10:26 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/07 20:04:45 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	handler(int sig)
 		rl_on_new_line();
 		rl_replace_line("", 0);
 		rl_redisplay();
-		g_exit_status = 130;
+		g_exit_status = 1;
 	}
 }
 

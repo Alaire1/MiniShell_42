@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 16:52:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 20:07:26 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:35:18 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	read_input(t_minishell *mini)
 	if (!valid_input(trimmed))
 	{
 		free(trimmed);
-		g_exit_status = 2;
+		g_exit_status = 258;
 		return (0);
 	}
 	input_handler(mini, trimmed);

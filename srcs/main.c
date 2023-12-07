@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:21:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/07 15:49:10 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:53:29 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int argc, char **argv, char **sys_env)
 				break ;
 			executer(&mini);
 		}
-		return (clear_all_data(mini), 0);
+		return (clear_all_data(mini), 1);
 	}
 	return (0);
 }
