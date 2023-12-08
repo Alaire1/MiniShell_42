@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:50:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/07 20:01:35 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/08 14:08:26 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	get_exit_status(t_minishell *mini)
 			g_exit_status = WEXITSTATUS(status);
 		else if (WIFSIGNALED(status))
 			g_exit_status = 1;
-		printf("WTERMSIG: %d\n", WTERMSIG(status));
 	}
 }
 

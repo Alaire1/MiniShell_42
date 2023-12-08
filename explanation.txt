@@ -18,3 +18,20 @@ main.c
         - checking for invaid syntax
             -
         
+
+
+
+
+EXECUTION
+if there are pipes
+
+
+if just one command (no pipes in the struct)
+- add_whitespaces 
+	-is adding white spaces before and after redirections if they are not inside quotes
+-remove_redirs 
+	-is counting how many whitespaces are in the current string
+	-spliting the string by white spaces
+	- if there are redirections 
+	-assiging split arguments into a cmd_args array of strings
+	

@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:07:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/07 15:00:55 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:07:53 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int    get_level(char *info)
 
     level_str = ft_strchr(info, '=') + 1;
     level = atoi(level_str);
-    free(info); //not sure it can be freed here
+    free(info);
     return (level);
 }
 
@@ -35,39 +35,6 @@ char    *get_string(char *name, char *info)
     free(info);
     return (new_info);
 }
-// void	incr_shell_lvl(t_list *data)  // function working but is too long
-// {
-//     t_list	*lst;
-//     t_env	*envir;
-//     int		level;
-//     char    *level_str;
-//     char    *new_info;
-
-//     lst = data;
-//     while (lst)
-//     {
-//         envir = (t_env *)lst->content;
-//         if (envir && strcmp(envir->name, "SHLVL") == 0)
-//         {
-//             if (envir->info)
-//             {
-//                 level = get_level(envir->info) + 1;
-//                 if (level <= 999)
-//                 { 
-//                     level_str = ft_itoa(level);
-//                     new_info = get_string("SHLVL=", level_str);
-//                     envir->info = new_info;
-//                 }
-//                 else if (level == 1000)
-//                     envir->info = strdup("SHLVL=");
-//                 else
-//                     envir->info = strdup("SHLVL=1");
-//             }
-//             return; // Exit the function once the "SHLVL" variable is found and updated
-//         }
-//         lst = lst->next; // Advance to the next node in the list
-//     }
-// }
 
 t_env *find_shlvl(t_list *data)
 {
@@ -80,11 +47,11 @@ t_env *find_shlvl(t_list *data)
         envir = (t_env *)lst->content;
         if (envir && strcmp(envir->name, "SHLVL") == 0)
         {
-            return envir; // Return the "SHLVL" variable
+            return envir;
         }
-        lst = lst->next; // Advance to the next node in the list
+        lst = lst->next; 
     }
-    return NULL; // Return NULL if the "SHLVL" variable is not found
+    return NULL;
 }
 
 void update_shlvl(t_env *envir)

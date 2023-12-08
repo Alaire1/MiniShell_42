@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:50:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 19:09:58 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:21:49 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,15 @@ void	execute_multi_cmds(t_minishell *mini)
 	}
 	close_pipes(mini);
 }
-
+static void print_args(char **args)
+{
+	int i = 0;
+	while (args[i])
+	{
+		printf("args[%d]: %s\n", i, args[i]);
+		i++;
+	}
+}
 void	execute_single_cmd(t_minishell *mini, char *cmd)
 {
 	char	*command;
@@ -102,6 +110,7 @@ void	execute_single_cmd(t_minishell *mini, char *cmd)
 	{
 		signal_default();
 		cmd_args = handle_redirs(mini, cmd);
+		// print_args(cmd_args);
 		redirect(mini->in_fd, mini->out_fd);
 		expand_args(cmd_args, mini);
 		if (!cmd_args[0])
@@ -126,8 +135,17 @@ void	executer(t_minishell *mini)
 		execute_multi_cmds(mini);
 	else
 	{
+		printf("mini->args[0]: %s\n", mini->args[0]);
 		cmd = add_whitespaces(mini->args[0]);
+		printf("cmd: %s\n", cmd);
 		mini->cmd_args = remove_redirs(cmd);
+		// printf("mini->args[0]: %s\n", mini->args[0]);
+		// printf("mini->cmd_args[0]: %s\n", mini->cmd_args[0]);
+		// printf("mini->cmd_args[1]: %s\n", mini->cmd_args[1]);
+		// printf("mini->cmd_args[2]: %s\n", mini->cmd_args[2]);
+		// printf("mini->cmd_args[3]: %s\n", mini->cmd_args[3]);
+		// printf("mini->cmd_args[4]: %s\n", mini->cmd_args[4]);
+		// printf("mini->cmd_args[5]: %s\n", mini->cmd_args[5]);
 		execute_single_cmd(mini, cmd);
 		free(cmd);
 		check_builtin(mini, mini->cmd_args);

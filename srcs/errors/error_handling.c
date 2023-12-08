@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:20:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 19:09:44 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/08 17:11:36 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,7 @@ int	invalid_syntax(char *input)
 	else if (input[1] && input[0] == '|' && input[1] == '|')
 		return (syntax_error_token(UNTOKEN, '|', 1));
 	if (input[ft_strlen(input) - 1] == '|')
-	{
-		ft_putstr_fd("minishell: no support for pipe prompt\n", 2);
-		return (1);
-	}
+		return (258);
 	else if (strrchr(REDIR, input[ft_strlen(input) - 1]))
 		return (syntax_error_operator(UNTOKEN, "newline"));
 	return (0);
