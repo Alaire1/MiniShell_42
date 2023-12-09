@@ -6,11 +6,12 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 17:29:28 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 18:53:02 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 17:14:29 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
+
 int	ft_isalpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
