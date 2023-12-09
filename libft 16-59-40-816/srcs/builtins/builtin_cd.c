@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:50:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 17:46:14 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:47:35 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ void	check_cd(t_minishell *mini, char **cmd_args)
 		i++;
 	wait(&status);
 	if (WIFEXITED(status))
-		g_exit_status = WEXITSTATUS(status);
-	if (g_exit_status == 0)
+		g_exit_sygnal = WEXITSTATUS(status);
+	if (g_exit_sygnal == 0)
 	{
 		if (i == 1)
 			update_env(mini, get_info_env(&mini->env, "HOME"));
@@ -106,13 +106,13 @@ void	builtin_cd(t_minishell *mini, char **cmd_args)
 	if (i > 2)
 	{
 		ft_putstr_fd("minishell: cd: too many arguments\n", 2);
-		g_exit_status = 1;
+		g_exit_sygnal = 1;
 		free_child(mini, cmd_args, 0);
 		exit (1);
 	}
 	else if (i == 1)
 	{
-		g_exit_status = 0;
+		g_exit_sygnal = 0;
 		free_child(mini, cmd_args, 0);
 		exit (0);
 	}

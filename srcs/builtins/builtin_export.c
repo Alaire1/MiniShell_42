@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_export.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/09 13:56:02 by npavelic         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:51:49 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	export_error(t_minishell *mini, char **cmd_args)
 	int	i;
 
 	i = 1;
-	g_exit_status = 0;
+	g_exit_sygnal = 0;
 	while (cmd_args[i])
 	{
 		if (!check_validity(cmd_args[i]))

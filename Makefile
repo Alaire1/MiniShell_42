@@ -33,9 +33,10 @@ SRC =	builtins/builtin_cd \
 		execution/handle_heredoc \
 		execution/handle_redirs \
 		parsing/input_handler \
+		parsing/pipe_handler \
 		parsing/expander \
 		parsing/quote_remover \
-		parsing/split_meta \
+		parsing/split_input \
 		utils/signals \
 		utils/non_print_off \
 		utils/shell_lvl_env \

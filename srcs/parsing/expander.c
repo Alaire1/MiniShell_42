@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 11:20:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 19:10:06 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:53:09 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	total_length2(char *arg, int *i, int *len, t_minishell *mini)
 	}
 	else
 	{
-		temp = ft_itoa(g_exit_status);
+		temp = ft_itoa(g_exit_sygnal);
 		*len += ft_strlen(temp);
 		free(temp);
 		*i += 1;
@@ -66,7 +66,7 @@ static void	expand_exit_status(char *result, t_minishell *mini, int *i)
 	int		k;
 	char	*value;
 
-	value = ft_itoa(g_exit_status);
+	value = ft_itoa(g_exit_sygnal);
 	k = -1;
 	while (value[++k])
 		result[mini->counter++] = value[k];

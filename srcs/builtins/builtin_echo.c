@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_echo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/09 14:13:11 by npavelic         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:50:07 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,6 @@ void	builtin_echo(t_minishell *mini, char **cmd_args)
 	else
 		echo_multi_args(cmd_args, i);
 	free_child(mini, cmd_args, 0);
-	g_exit_status = 0;
+	g_exit_sygnal = 0;
 	exit (0);
 }

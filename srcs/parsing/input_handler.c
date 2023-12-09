@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 16:52:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 15:03:55 by npavelic         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:52:55 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void	input_handler(t_minishell *mini, char *input)
 {
 	mini->heredoc = 0;
-	mini->cmd_num = ft_wordcount_meta(input, '|');
+	mini->cmd_num = ft_wordcount_mini(input, '|');
 	mini->pipe_num = mini->cmd_num - 1;
-	mini->args = split_meta(input, '|');
+	mini->args = split_input(input, '|');
 	mini->paths = ft_split(get_info_env(&mini->env, "PATH"), ':');
 	mini->in_fd = STDIN_FILENO;
 	mini->out_fd = STDOUT_FILENO;
@@ -76,7 +76,7 @@ int	read_input(t_minishell *mini)
 	trimmed = trim_n_fix_out(input);
 	if (!valid_input(trimmed))
 	{
-		g_exit_status = 258;
+		g_exit_sygnal = 258;
 		return (free(trimmed), 0);
 	}
 	input_handler(mini, trimmed);

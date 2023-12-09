@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:21:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 13:59:28 by npavelic         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:43:55 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int	g_exit_status = 0;
+int	g_exit_sygnal = 0;
 
 void	initialize(char **sys_env, t_minishell *mini)
 {

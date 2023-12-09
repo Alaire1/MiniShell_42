@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/06 17:47:05 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:52:07 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	unset_error(t_minishell *mini, char **cmd_args)
 {
 	ft_putstr_fd("minishell: unset: no options supported\n", 2);
 	free_child(mini, cmd_args, 0);
-	g_exit_status = 2;
+	g_exit_sygnal = 2;
 	exit (2);
 }
 
@@ -84,8 +84,8 @@ void	check_unset(t_minishell *mini, char **cmd_args)
 		i++;
 	wait(&status);
 	if (WIFEXITED(status))
-		g_exit_status = WEXITSTATUS(status);
-	if (g_exit_status == 0)
+		g_exit_sygnal = WEXITSTATUS(status);
+	if (g_exit_sygnal == 0)
 	{
 		if (i > 1)
 		{
@@ -110,7 +110,7 @@ void	builtin_unset(t_minishell *mini, char **cmd_args)
 	if (i == 1)
 	{
 		free_child(mini, cmd_args, 1);
-		g_exit_status = 0;
+		g_exit_sygnal = 0;
 		exit (0);
 	}
 	else if (i > 1)
@@ -121,7 +121,7 @@ void	builtin_unset(t_minishell *mini, char **cmd_args)
 		while (cmd_args[i])
 		{
 			free_child(mini, cmd_args, 0);
-			g_exit_status = 0;
+			g_exit_sygnal = 0;
 			exit (0);
 		}
 	}

@@ -19,8 +19,8 @@ char	**remove_redirs(char *input)
 	int		count;
 
 	i = 0;
-	count = ft_wordcount_meta(input, ' ');
-	cmd_args = split_meta(input, ' ');
+	count = ft_wordcount_mini(input, ' ');
+	cmd_args = split_input(input, ' ');
 	while (cmd_args[i])
 	{
 		if (ft_strncmp(cmd_args[i], "<", ft_strlen(cmd_args[i])) == 0)
@@ -49,7 +49,7 @@ void	check_heredoc(t_minishell *mini, int i)
 	if (i == 0)
 		return ;
 	temp = add_whitespaces(mini->args[i - 1]);
-	cmd_args = split_meta(temp, ' ');
+	cmd_args = split_input(temp, ' ');
 	while (cmd_args[++j])
 		if (ft_strncmp(cmd_args[j], "<<", ft_strlen(cmd_args[j])) == 0)
 			mini->heredoc = 1;
@@ -81,7 +81,7 @@ char	*add_whitespaces(char *str)
 	i = 0;
 	j = 0;
 	quote = 0;
-	result = (char *)malloc(sizeof(char) * (ft_meta_strlen(str) + 1));
+	result = (char *)malloc(sizeof(char) * (ft_redir_strlen(str) + 1));
 	while (str[i])
 	{
 		quote = quote_value(str[i], quote);
@@ -99,7 +99,7 @@ char	*add_whitespaces(char *str)
 	return (result);
 }
 
-size_t	ft_meta_strlen(char *str)
+size_t	ft_redir_strlen(char *str)
 {
 	int		len;
 	int		i;

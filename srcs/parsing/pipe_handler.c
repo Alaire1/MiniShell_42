@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_handler.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:59:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 15:03:25 by npavelic         ###   ########.fr       */
+/*   Updated: 2023/12/09 15:12:22 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ends_with_pipe(char *str)
 	return (0);
 }
 
-char	*join_input(char *first_part, char *second_part)
+static char	*join_input(char *first_part, char *second_part)
 {
 	char	*returned_input;
 
@@ -40,7 +40,7 @@ char	*join_input(char *first_part, char *second_part)
 	return (returned_input);
 }
 
-int	begins_with_pipe(char *str)
+static int	begins_with_pipe(char *str)
 {
 	int	i;
 
@@ -54,7 +54,7 @@ int	begins_with_pipe(char *str)
 	return (0);
 }
 
-int	just_single_pipe(char *str)
+static int	just_single_pipe(char *str)
 {
 	str = ft_strtrim(str, " ");
 	if ((ft_strlen(str) == 1) && (str[0] == '|'))

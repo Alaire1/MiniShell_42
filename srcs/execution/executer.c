@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:50:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 13:50:30 by npavelic         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:57:03 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,15 +137,13 @@ void	executer(t_minishell *mini)
 		execute_multi_cmds(mini);
 	else
 	{
-		printf("mini->args[0]: %s\n", mini->args[0]);
 		cmd = add_whitespaces(mini->args[0]);
-		printf("cmd: %s\n", cmd);
 		mini->cmd_args = remove_redirs(cmd);
 		execute_single_cmd(mini, cmd);
 		free(cmd);
 		check_builtin(mini, mini->cmd_args);
 		ft_free_split(mini->cmd_args);
 	}
-	get_exit_status(mini);
+	get_exit_sygnal(mini);
 	free_main(mini, 0);
 }

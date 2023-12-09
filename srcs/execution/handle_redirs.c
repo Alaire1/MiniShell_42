@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:40:07 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 19:10:04 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 15:23:02 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,8 @@ char	**handle_redirs(t_minishell *mini, char *input)
 	i = 0;
 	mini->in_fd = 0;
 	mini->out_fd = 1;
-	count = ft_wordcount_meta(input, ' ');
-	cmd_args = split_meta(input, ' ');
+	count = ft_wordcount_mini(input, ' ');
+	cmd_args = split_input(input, ' ');
 	free(input);
 	while (cmd_args[i])
 	{

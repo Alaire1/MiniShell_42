@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split_meta.c                                       :+:      :+:    :+:   */
+/*   split_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:20:52 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 19:10:16 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 15:26:19 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	ft_wordcount_meta(char *str, char c)
+int	ft_wordcount_mini(char *str, char c)
 {
 	int		i;
 	int		wordcount;
@@ -65,7 +65,7 @@ static char	*get_word(char *s, char c, char **words)
 	return (s);
 }
 
-char	**split_meta(char *s, char c)
+char	**split_input(char *s, char c)
 {
 	char	**words;
 	int		wdcount;
@@ -74,7 +74,7 @@ char	**split_meta(char *s, char c)
 	j = 0;
 	if (!s)
 		return (0);
-	wdcount = ft_wordcount_meta(s, c);
+	wdcount = ft_wordcount_mini(s, c);
 	words = (char **)malloc(sizeof(char *) * (wdcount + 1));
 	if (!words)
 		return (0);

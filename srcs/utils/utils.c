@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:50:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/08 14:08:26 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:55:54 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	isalnumextra(int c)
 		return (0);
 }
 
-void	get_exit_status(t_minishell *mini)
+void	get_exit_sygnal(t_minishell *mini)
 {
 	int		i;
 	pid_t	j;
@@ -44,9 +44,9 @@ void	get_exit_status(t_minishell *mini)
 		if (j < 0)
 			continue ;
 		if (WIFEXITED(status))
-			g_exit_status = WEXITSTATUS(status);
+			g_exit_sygnal = WEXITSTATUS(status);
 		else if (WIFSIGNALED(status))
-			g_exit_status = 1;
+			g_exit_sygnal = 1;
 	}
 }
 
@@ -68,7 +68,7 @@ void	free_child(t_minishell *mini, char **cmd_args, int i)
 	free_export(mini->export);
 	if (i == 1)
 	{
-		g_exit_status = 1;
+		g_exit_sygnal = 1;
 		exit(1);
 	}
 }

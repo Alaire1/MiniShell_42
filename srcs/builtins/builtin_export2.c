@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/06 17:46:35 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:51:59 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ void	check_export(t_minishell *mini, char **cmd_args)
 		i++;
 	wait(&status);
 	if (WIFEXITED(status))
-		g_exit_status = WEXITSTATUS(status);
-	if (g_exit_status != 2)
+		g_exit_sygnal = WEXITSTATUS(status);
+	if (g_exit_sygnal != 2)
 	{
 		if (i > 1)
 		{
 			i = 0;
-			g_exit_status = 0;
+			g_exit_sygnal = 0;
 			while (cmd_args[++i])
 			{
 				if (check_validity(cmd_args[i]))
