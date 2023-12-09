@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   shell_lvl_export.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:07:02 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/08 13:05:45 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:37:19 by npavelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-char *get_num_from_str(char *str)
+char	*get_num_from_str(char *str)
 {
-	int i;
-	int j;
-	char *num;
+	int		i;
+	int		j;
+	char	*num;
 
 	i = 0;
 	j = 0;
@@ -32,14 +32,14 @@ char *get_num_from_str(char *str)
 		j++;
 	}
 	num[j] = '\0';
-	return num;
+	return (num);
 }
 
-char *get_updated_shlvl(char *str)
+char	*get_updated_shlvl(char *str)
 {
-	int j;
-	char *num;
-	char *new_str;
+	int		j;
+	char	*num;
+	char	*new_str;
 
 	num = get_num_from_str(str);
 	j = ft_atoi(num) + 1;
@@ -52,5 +52,5 @@ char *get_updated_shlvl(char *str)
 		num = ft_itoa(j);
 	new_str = ft_strjoin("SHLVL=", num);
 	free(num);
-	return (new_str);	
+	return (new_str);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quote_remover.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:50:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/06 19:10:11 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 14:12:05 by npavelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ char	*remove_quotes(char *arg)
 		quote_checker(arg, &i, &quote);
 		if (i > (int)ft_strlen(arg) - 1)
 			break ;
-		if ((quote && quote != arg[i]) || (!quote && !ft_strchr("\"\'", arg[i])))
+		if ((quote && quote != arg[i])
+			|| (!quote && !ft_strchr("\"\'", arg[i])))
 			result[j++] = arg[i];
 	}
 	return (result[j] = 0, free(arg), result);

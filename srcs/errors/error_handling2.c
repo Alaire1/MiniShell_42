@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handling2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 19:29:57 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/07 19:31:05 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:50:54 by npavelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	syntax_error_token(char *error, char metachar, int dup)
 	ft_putstr_fd("'\n", 2);
 	return (1);
 }
-
 
 int	unexpected_token_redir(char *input, int *i)
 {

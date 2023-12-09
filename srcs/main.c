@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:21:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/07 19:53:29 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:59:28 by npavelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 int	g_exit_status = 0;
 
-void initialize(char **sys_env, t_minishell *mini)
+void	initialize(char **sys_env, t_minishell *mini)
 {
 	mini->env = init_env(sys_env);
 	mini->export = init_export(sys_env);
 	incr_shell_lvl(mini->env);
-	
 }
 
-void clear_all_data(t_minishell mini)
+void	clear_all_data(t_minishell mini)
 {
 	rl_clear_history();
 	free_env(mini.env);

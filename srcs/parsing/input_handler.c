@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   input_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 16:52:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/08 14:17:18 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 15:03:55 by npavelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-#include "../includes/minishell.h"
 
 static void	input_handler(t_minishell *mini, char *input)
 {
@@ -28,61 +26,43 @@ static void	input_handler(t_minishell *mini, char *input)
 	mini->cmd_args = 0;
 }
 
-
-/// FUNCTIONS BELOW ARE FOR | end handling
-
-int	ends_with_pipe (char *str)
+char	*fix_out_pipe(char *input, int i)
 {
-	int	i;
+	char	q;
 
-	if (!(ft_strlen(str)))
-		return (0);
-	i = strlen(str) - 1;
-	while (str[i] == ' ') 
+	if ((input[0] == '>') && (input[1] == '|'))
+		input[1] = ' ';
+	while (input[i])
 	{
-		i--;
-		if (i < 0)
-			return (0);
-	}
-	if (str[i] == '|')
-		return (1);
-	return (0);
-}
-
-char    *join_input (char    *first_part, char    *second_part)
-{
-	char    *returned_input;
-
-	returned_input = ft_strjoin(first_part, second_part);
-	free (second_part);
-	free (first_part);
-	return (returned_input);
-}
-
-char *handle_ending_pipe(char *input)
-{
-	char    *extra_input;
-
-	while (ends_with_pipe(input))
-	{
-		signal_handling();
-		extra_input = readline (CYAN SIGN RESET);
-		if (extra_input == NULL)
+		if ((input[i] == '\'') || (input[i] == '\"'))
 		{
-			ft_putstr_fd("syntax error: unexpected end of file\n", 2); // and update  exit
-			return (input);
+			q = input[i];
+			while ((input[i] != q) && (input[i]))
+				i++;
+			if (!input[i])
+				return (input);
 		}
-		input = join_input (input, extra_input);
+		if ((input[i] == '>') && (input[i + 1] == '|')
+			&& (input[i - 1] != '>'))
+			input[i + 1] = ' ';
+		i++;
 	}
 	return (input);
 }
 
+char	*trim_n_fix_out(char *input)
+{
+	char	*result;
+
+	result = ft_strtrim(input, " ");
+	result = fix_out_pipe (result, 1);
+	return (result);
+}
 
 int	read_input(t_minishell *mini)
 {
 	char		*input;
 	char		*trimmed;
-
 
 	input = readline(LIGHT_GREEN PROMPT CYAN SIGN RESET);
 	if (!input)
@@ -93,12 +73,11 @@ int	read_input(t_minishell *mini)
 		return (-1);
 	if (ft_strlen(input) > 0)
 		add_history(input);
-	trimmed = ft_strtrim(input, " ");
-	free(input);
+	trimmed = trim_n_fix_out(input);
 	if (!valid_input(trimmed))
 	{
 		g_exit_status = 258;
-		return (free(trimmed) ,0);
+		return (free(trimmed), 0);
 	}
 	input_handler(mini, trimmed);
 	free(trimmed);

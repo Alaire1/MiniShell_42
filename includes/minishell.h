@@ -25,8 +25,8 @@
 # define LLOWER "<<"
 # define NOTHANDLE "&;(){}*\\"
 
-# define UNTOKEN "Bash4Cash💸: syntax error near unexpected token '"
-# define NOSUPPORT "Bash4Cash💸: no support for operator '"
+# define UNTOKEN "Bash4Cash💸: syntax error near unexpected token `"
+# define NOSUPPORT "Bash4Cash💸: no support for operator `"
 
 
 # define PROMPT "Bash4Cash💸"
