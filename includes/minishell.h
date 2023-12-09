@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:59:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 17:11:39 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 17:23:29 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@
 //Colors header
 # include <colors.h>
 
+# define PROMPT "Bash4Cash💸"
+# define SIGN "-> "
+
 # define METACHAR "><|"  //no need to replicate or handle \;
 # define REDIR "><"
 # define GGREATER ">>"
@@ -38,9 +41,6 @@
 
 # define UNTOKEN "Bash4Cash💸: syntax error near unexpected token `"
 # define NOSUPPORT "Bash4Cash💸: no support for operator `"
-
-# define PROMPT "Bash4Cash💸"
-# define SIGN "-> "
 
 extern int	g_exit_sygnal;
 
