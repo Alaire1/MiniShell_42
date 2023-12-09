@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:21:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 16:43:55 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 19:50:12 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main(int argc, char **argv, char **sys_env)
 		while (1)
 		{
 			input_check = 0;
+			ft_terminal_non_print_off();
 			signal_handling();
 			input_check = read_input(&mini);
 			if (!input_check)

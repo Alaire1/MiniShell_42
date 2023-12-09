@@ -6,7 +6,8 @@ main.c
     - next we are allocating space for the both structs with appropriate struct type
     - env variabes are being split, so we can access name and value variabes
 - inside whie loop
-    - starting signals to work, we may go into details later on
+    - starting signals to work, we may go into details later on 
+		signal(SIGQUIT, SIG_IGN) ignores the quit sygnal
     - getting input from readline
     - if input length is greater than zero we are adding it to the history
     - trimming input (function is in libft) just trimms the beggining and the end of the input

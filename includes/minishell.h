@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:59:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 17:23:29 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 19:46:14 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <errno.h>
 # include <string.h>
 # include <signal.h>
+# include <termios.h>
 
 //Colors header
 # include <colors.h>
@@ -238,6 +239,7 @@ void	signal_default(void);
 void	handler_sigint(int sig);
 void	handler(int sig);
 void	signal_handling(void);
+void	term_atributes_echoctl_on(void);
 
 // main.c
 void	initialize(char **sys_env, t_minishell *mini);

@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:50:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 16:57:03 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 20:21:08 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,17 +92,6 @@ void	execute_multi_cmds(t_minishell *mini)
 	close_pipes(mini);
 }
 
-///test function DELETE BEFORE EVAL!
-// static void print_args(char **args)
-// {													
-// 	int i = 0;
-// 	while (args[i])
-// 	{
-// 		printf("args[%d]: %s\n", i, args[i]);
-// 		i++;
-// 	}
-// }
-
 void	execute_single_cmd(t_minishell *mini, char *cmd)
 {
 	char	*command;
@@ -133,6 +122,7 @@ void	executer(t_minishell *mini)
 	char	*cmd;
 
 	cmd = 0;
+	term_atributes_echoctl_on();
 	if (mini->pipe_num > 0)
 		execute_multi_cmds(mini);
 	else

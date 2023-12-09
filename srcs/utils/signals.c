@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:50:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/09 16:53:22 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 19:44:57 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,28 @@ void	signal_handling(void)
 	sigaddset(&sa.sa_mask, SIGINT);
 	sigaction(SIGINT, &sa, NULL);
 	signal(SIGQUIT, SIG_IGN);
+}
+
+void	term_atributes_echoctl_on(void)
+{
+	struct termios	attr;
+
+	if (isatty(STDIN_FILENO))
+	{
+		tcgetattr(STDIN_FILENO, &attr);
+		attr.c_lflag = attr.c_lflag | ECHOCTL;
+		tcsetattr(STDIN_FILENO, TCSANOW, &attr);
+	}
+	else if (isatty(STDOUT_FILENO))
+	{
+		tcgetattr(STDOUT_FILENO, &attr);
+		attr.c_lflag = attr.c_lflag | ECHOCTL;
+		tcsetattr(STDOUT_FILENO, TCSANOW, &attr);
+	}
+	else if (isatty(STDERR_FILENO))
+	{
+		tcgetattr(STDERR_FILENO, &attr);
+		attr.c_lflag = attr.c_lflag | ECHOCTL;
+		tcsetattr(STDERR_FILENO, TCSANOW, &attr);
+	}
 }

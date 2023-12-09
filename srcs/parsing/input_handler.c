@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 16:52:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 16:52:55 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/09 19:58:01 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,13 @@ char	*trim_n_fix_out(char *input)
 	char	*result;
 
 	result = ft_strtrim(input, " ");
+	if (ft_strlen(result) == 0)
+	{
+		free(input);
+		return (result);
+	}
 	result = fix_out_pipe (result, 1);
+	free(input);
 	return (result);
 }
 
