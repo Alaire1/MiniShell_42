@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 16:52:12 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 19:58:01 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/10 18:14:29 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int	read_input(t_minishell *mini)
 {
 	char		*input;
 	char		*trimmed;
-
+	
+	
 	input = readline(LIGHT_GREEN PROMPT CYAN SIGN RESET);
 	if (!input)
 		return (-1);

@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 19:09:12 by akaraban          #+#    #+#             */
-/*   Updated: 2023/12/09 16:51:29 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/10 17:07:24 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	exit_error3(t_minishell *mini, char **cmd_args)
 	ft_putstr_fd("minishell: exit: ", 2);
 	ft_putstr_fd(cmd_args[1], 2);
 	ft_putstr_fd(": numeric argument required\n", 2);
-	g_exit_sygnal = 2;
+	g_exit_sygnal = 255;
 	free_child(mini, cmd_args, 0);
 	exit (g_exit_sygnal);
 }

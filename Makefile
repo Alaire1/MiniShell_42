@@ -38,6 +38,7 @@ SRC =	builtins/builtin_cd \
 		parsing/quote_remover \
 		parsing/split_input \
 		utils/signals \
+		utils/signals2 \
 		utils/non_print_off \
 		utils/shell_lvl_env \
 		utils/shell_lvl_export\

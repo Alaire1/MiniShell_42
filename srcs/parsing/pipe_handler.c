@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:59:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 17:58:12 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/10 18:14:53 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*handle_ending_pipe(char *input)
 	}
 	while (ends_with_pipe(input))
 	{
-		signal_handling();
+		signal_default();
 		extra_input = readline (CYAN SIGN RESET);
 		if (extra_input == NULL)
 		{

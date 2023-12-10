@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_heredoc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: npavelic <npavelic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 08:50:57 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 14:29:32 by npavelic         ###   ########.fr       */
+/*   Updated: 2023/12/10 17:02:51 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	heredoc(t_minishell *mini, char **cmd_args, char *limiter)
 		heredoc_file_error(mini, cmd_args);
 	while (1)
 	{
+		ft_terminal_non_print_off();
+		ignore_sigquit();
 		buff = readline(LIGHT_GREEN SIGN RESET);
 		if (!buff)
 		{

@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:59:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/09 19:46:14 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/12/10 17:02:28 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,6 +240,9 @@ void	handler_sigint(int sig);
 void	handler(int sig);
 void	signal_handling(void);
 void	term_atributes_echoctl_on(void);
+
+///signals2.c
+void ignore_sigquit(void);
 
 // main.c
 void	initialize(char **sys_env, t_minishell *mini);
