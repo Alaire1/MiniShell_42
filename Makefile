@@ -3,11 +3,11 @@
 NAME		= minishell
 LIBFT		= libft.a
 
-CFLAGS = -Wall -Wextra -Werror -I $(INCDIR)  -I /usr/local/Cellar/readline/8.1.1/include/ -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I $(INCDIR)  -I /usr/local/Cellar/readline/8.1.1/include/ 
 EXTRA = -lreadline 
 AR = ar rcs
 RM = rm -rf
-MAKEFLAGS += --no-print-directory
+MAKEFLAGS += --no-print-directory 
 
 SRCDIR = ./srcs/
 LIBFTDIR = ./libft/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akaraban <akaraban.student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:59:42 by npavelic          #+#    #+#             */
-/*   Updated: 2023/12/10 17:02:28 by akaraban         ###   ########.fr       */
+/*   Updated: 2024/04/29 23:23:59 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define PROMPT "Bash4Cash💸"
 # define SIGN "-> "
 
-# define METACHAR "><|"  //no need to replicate or handle \;
+# define METACHAR "><|" 
 # define REDIR "><"
 # define GGREATER ">>"
 # define LLOWER "<<"
