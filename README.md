@@ -55,6 +55,6 @@ Exit Status Awareness: It recognizes $? as a special token, expanding it to the 
 ### Signal Handling in Interactive Mode
 - **Ctrl-C:** Displays a new prompt on a new line, essentially continuing execution after interruption.
 - **Ctrl-D:** Exits the shell gracefully.
-- **Ctrl-\:** Currently has no effect in our minishell.
+- **Ctrl-\\:** Currently has no effect in our minishell.
 
 
