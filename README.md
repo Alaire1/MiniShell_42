@@ -43,10 +43,10 @@ It avoids interpreting unnecessary characters like backslashes (\) and semicolon
 ### Quoting:
 It handles both single (') and double (") quotes effectively. Single quotes prevent any interpretation within the quoted sequence, while double quotes allow variable expansion ($) but not other shell metacharacters.
 ### Redirectional Magic
-- <: Redirects input from a specified file.
+- **<:** Redirects input from a specified file.
 - **>:** Redirects output to a designated file, overwriting existing content.
 - **<<:** Enables here-strings, where input is read until a specific delimiter line is encountered (history update is not implemented).
-- >>: Redirects output in append mode, adding to the existing content in a file.
+- **>>:** Redirects output in append mode, adding to the existing content in a file.
 ### Pipe Power
 It supports pipes (|), allowing the output of one command to be directly fed as input to the next, enabling powerful command combinations.
 ### Variable Savvy
