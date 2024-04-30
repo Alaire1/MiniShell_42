@@ -26,7 +26,14 @@ and manage simple input/output operations.
   ```
   ./minishell
   ```
+## Built-in Commands:
 
-## Commands that can be used
-- 
+- **cd (change directory):** Navigates to a specified directory.
+- **pwd (print working directory):** Displays the current working directory path.
+- **echo:** Prints arguments to the console.
+- **exit:** Terminates the minishell session.
+- **export:** Sets or modifies environment variables.
+- **unset:** Unsets an environment variable.
+- **env:** Prints enviromental variables.
+
 
