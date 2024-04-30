@@ -52,9 +52,9 @@ It supports pipes (|), allowing the output of one command to be directly fed as 
 ### Variable Savvy
 It understands environment variables, expanding $ followed by a sequence of characters to their corresponding values.
 Exit Status Awareness: It recognizes $? as a special token, expanding it to the exit status of the most recent foreground command executed.
-## Signal Handling in Interactive Mode:
-Ctrl-C: Displays a new prompt on a new line, essentially continuing execution after interruption.
-Ctrl-D: Exits the shell gracefully.
-Ctrl-\: Currently has no effect in our minishell.
+### Signal Handling in Interactive Mode
+- **Ctrl-C:** Displays a new prompt on a new line, essentially continuing execution after interruption.
+- **Ctrl-D:** Exits the shell gracefully.
+- **Ctrl-\:** Currently has no effect in our minishell.
 
 
